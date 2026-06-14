@@ -1,0 +1,5 @@
+__pycache__/
+checkpoints/
+wandb/
+train_log.txt
+wait_log.txt
