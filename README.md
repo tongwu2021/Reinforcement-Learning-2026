@@ -59,4 +59,13 @@ python c_sac_test.py
 - `colab_test.ipynb`: 학습된 모델/체크포인트를 불러와 평가 (학습용 노트북과 별도 런타임에서 동시 실행 가능)
 
 ## 결과
-학습 약 7,000K time steps 시점에 validation 평균 리워드 **302.6**을 달성하여 Solved 기준(300)을 넘었습니다. 이후 추가 학습은 정책 안정화를 위해 계속 진행되었으며, `models/sac_BipedalWalkerHardcore-v3_latest.pth`에 최신 정책 가중치가 저장되어 있습니다.
+학습 약 7,000K time steps 시점에 validation 평균 리워드 **302.6**을 달성하여 Solved 기준(300)을 넘었습니다. `models/sac_BipedalWalkerHardcore-v3_latest.pth`가 이 시점의 정책 가중치이며, 100 episodes로 평가한 결과는 다음과 같습니다.
+
+| 지표 | 값 |
+|---|---|
+| Average Reward | 250.30 (+/- 103.04) |
+| Min / Max | -53.35 / 308.47 |
+| Success (>= 300) | 57 / 100 (57.0%) |
+| Fail (< 0) | 4 / 100 (4.0%) |
+
+Hardcore 모드는 매 에피소드 지형(계단/구덩이/말뚝 등)이 랜덤하게 생성되어 결과의 분산이 매우 큽니다. 57%는 거의 만점(300+)으로 완주하고, 4%만 완전히 넘어지는 수준입니다.
